@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Style Link -->
+    <div th:replace="fragments/linkfrags :: topStyleLinks" ></div>
+    <!-- end -->
+</head>
+<body>
+    <div th:fragment="navbar">
+            <nav class="row navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" style="color: #00aced">
+                        <i class="fab fa-twitter"></i> Tech Talent Twitter</a>
+                    </div>
+                    <div id="navbar">
+                        <ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
+                            <li><a href="/tweets">Home</a></li>
+                            <li><a href="/tweets/new">New Tweet</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">
+                            @<span sec:authentication="name"></span></a>
+                            <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+                            <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <!-- Start of left menu -->
+                        <div class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="fas fa-home"></i> Home</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="fas fa-hashtag"></i> Explore</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="far fa-bell"></i> Notifications</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="far fa-envelope"></i> Messages</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="far fa-bookmark"></i> Bookmarks</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="far fa-list-alt"></i> Lists</button>
+                            <button type="button" class="list-group-item list-group-item-action"><img src="/images/LoginImg.svg" alt="avatar" class="avatar rounded-circle"> Profile</button>
+                            <button type="button" class="list-group-item list-group-item-action"><i class="fas fa-ellipsis-h"></i> More</button>
+                            <button type="button" class="list-group-item list-group-item-action rounded">Tweet</button>
+                          
+        
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <img src="/images/LoginImg.svg" alt="avatar" class=" rounded-circle"> 
+                    </div> -->
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
+
+    </div>  
+
+    <!-- Bootstrap Footer Script -->
+    <div th:replace="fragments/linkfrags :: bottomJavascript" ></div>
+    <!-- end -->
+</body>
+</html>
